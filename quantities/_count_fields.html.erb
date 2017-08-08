@@ -1,0 +1,45 @@
+<%= f.simple_fields_for count_type do |count| %>
+  <fieldset class="border">
+    <legend class="border">Quantities:</legend>
+    <div class="row tyre js-tyre-quantity-block" data-qty-limit="<%= Tyre::QTY_CONDITIONALS.to_json %>" data-path=<%= send("tyre_counts_backoffice_#{f.object.class.name.downcase.pluralize}_path", id: f.object.id) %>>
+      <%= iconified_tyre_qty("Passenger", "passenger", "qty", count) %>
+      <%= iconified_tyre_qty("4x4", "fourxfour", "qty", count) %>
+      <%= iconified_tyre_qty("Light truck", "light_truck", "qty", count) %>
+      <%= iconified_tyre_qty("Truck", "truck", "qty", count) %>
+      <%= iconified_tyre_qty("Motorcycle", "motorcycle", "qty", count) %>
+      <%= iconified_tyre_qty("Agricultural", "agricultural", "qty", count) %>
+      <%= iconified_tyre_qty("Aircraft", "aircraft", "qty", count) %>
+      <%= iconified_tyre_qty("OTR", "otr", "qty", count) %>
+      <%= iconified_tyre_qty("Forklift", "forklift", "qty", count) %>
+      <%= iconified_tyre_qty("Passenger bale", "passenger_bale", "qty", count) %>
+      <%= iconified_tyre_qty("Scap bale", "scrap_bale", "qty", count) %>
+      <%= iconified_tyre_qty("Truck bale", "truck_bale", "qty", count) %>
+      <%= iconified_tyre_qty("Truck sidewall bale", "truck_sidewall_bale", "qty", count) %>
+      <%= iconified_tyre_qty("Truck thread bale", "truck_thread_bale", "qty", count) %>
+      <%= iconified_tyre_qty("Scrap in kg", "scrap", "weight", count) %>
+      <%= iconified_tyre_qty("Shred in kg", "shred", "weight", count) %>
+      <div class="col-sm-2">
+        <div class="tyre__quantities js-tyre-totals">
+          <table class="table no-margin">
+            <tr class="hidden">
+              <td class="title"><%=inline_svg("transporters.svg", class: "svg tyre__type--small")  %><span class="title__text">Vehicle size</span></td>
+              <td class="js-vehicle-type">0</td>
+            </tr>
+            <tr class="hidden">
+              <td class="title"><%=inline_svg("tyre_qty/load_capacity.svg", class: "svg tyre__type--small")  %><span class="title__text">Load capacity</span></td>
+              <th class="js-load-capacity">0</th>
+            </tr>
+            <tr>
+              <td class="title" width="25%"><%=inline_svg("tyre_qty/weight.svg", class: "svg tyre__type--small")  %><span class="title__text">Total weight</span></td>
+              <th class="js-total-tyre-weight">0</th>
+            </tr>
+            <tr>
+              <td class="title"><%=inline_svg("tyre_qty/quantity.svg", class: "svg tyre__type--small")  %><span class="title__text">Total tyres</span></td>
+              <td class="js-total-tyre-qty">0</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

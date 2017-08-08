@@ -1,0 +1,36 @@
+svg
+  &.invert
+    -moz-transform: scaleX(-1)
+    -o-transform: scaleX(-1)
+    -webkit-transform: scaleX(-1)
+    transform: scaleX(-1)
+    filter: FlipH
+    -ms-filter: "FlipH"
+
+.tyre
+  input
+    font-size: 1.4em
+  &__quantities
+    border: 1px solid $brand-primary
+    margin-bottom: $base_margin
+    min-height: 190px
+    padding: $base_padding
+    &__svg
+      height: 60px
+      max-width: 90px
+      fill: $brand-black
+      g
+        fill: $brand-black
+    &--warning
+      border-color: orange
+      color: orange
+      svg
+        fill: orange
+        g
+          fill: orange
+  &__type
+    display: block
+    margin-left: 10px
+    &--small
+      max-height: 1.7em
+      max-width: 1.7em
