@@ -1,0 +1,55 @@
+<thead class="">
+  <tr>
+    <td class="hidden">Generated at:</td>
+    <td class="hidden"><%= show_date_time(DateTime.now) %></td>
+    <td class="hidden"><%= @type.humanize %></td>
+    <% 15.times do %>
+      <td class="hidden"></td>
+    <% end %>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <th>Region</th>
+    <th>Province</th>
+    <th>Entity</th>
+    <th>Sub id</th>
+    <th>Trading name</th>
+    <th>Business registered name</th>
+    <th>Status</th>
+    <th class="hidden">Type</th>
+    <th class="hidden">Business group</th>
+    <th class="hidden">Latitude</th>
+    <th class="hidden">Longitude</th>
+    <th class="hidden">Line 1</th>
+    <th class="hidden">Suburb</th>
+    <th class="hidden">City</th>
+    <th class="hidden">Postal code</th>
+    <th class="hidden">Contact</th>
+    <th class="hidden">Contact number</th>
+    <th class="hidden">Contact email</th>
+  </tr>
+  <% @records.sort{ |a,b| a[:trading_name] <=> b[:trading_name] }.each do |record| %>
+    <tr>
+      <td><%= find_region(record.province) %></td>
+      <td><%= record.province %></td>
+      <td><%= record.entity_type %></td>
+      <td><%= record.id %></td>
+      <td><%= record.trading_name %></td>
+      <td><%= record.business_registered_name %></td>
+      <td><%= record.status.humanize %></td>
+      <td class="hidden"><%= record.kind %></td>
+      <td class="hidden"><%= record.business_group_name %></td>
+      <td class="hidden"><%= record.latitude %></td>
+      <td class="hidden"><%= record.longitude %></td>
+      <td class="hidden"><%= [record.address_line_1, record.address_line_2].join(', ') %></td>
+      <td class="hidden"><%= record.address_suburb %></td>
+      <td class="hidden"><%= record.address_city %></td>
+      <td class="hidden"><%= record.address_postal_code %></td>
+      <td class="hidden"><%= record.contact_name_to_s %></td>
+      <td class="hidden"><%= record.contact_telephone_number %></td>
+      <td class="hidden"><%= record.contact_email %></td>
+    </tr>
+  <% end %>
+</tbody>
